@@ -6,459 +6,513 @@
     <title>Abdelouahed ZAAMA | Portfolio</title>
     <style>
         :root {
-            --primary-color: #3b82f6;
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --card2: #253347;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: #334155;
+            --tag-bg: #2d3f55;
         }
 
-        * { box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            font-size: 15px;
         }
 
+        /* ─────────────── NAV MOBILE ─────────────── */
+        .mob-nav {
+            display: none;
+            position: sticky; top: 0; z-index: 200;
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: .6rem 1rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mob-nav-name {
+            font-weight: 800; font-size: .95rem;
+            letter-spacing: .05em; color: var(--primary);
+        }
+        .burger {
+            background: none; border: none; cursor: pointer;
+            display: flex; flex-direction: column; gap: 5px; padding: 4px;
+        }
+        .burger span {
+            display: block; width: 24px; height: 2px;
+            background: var(--text); border-radius: 2px;
+            transition: all .3s;
+        }
+        .burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .burger.open span:nth-child(2) { opacity: 0; }
+        .burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+        .mob-menu {
+            display: none; position: fixed; inset: 0; top: 49px; z-index: 199;
+            background: rgba(15,23,42,.97);
+            flex-direction: column; align-items: center; justify-content: center;
+            gap: 1.8rem;
+        }
+        .mob-menu.open { display: flex; }
+        .mob-menu a {
+            color: var(--text); text-decoration: none; font-size: 1.3rem;
+            font-weight: 700; letter-spacing: .08em; transition: color .2s;
+        }
+        .mob-menu a:hover { color: var(--primary); }
+
+        /* ─────────────── CONTAINER ─────────────── */
         .container {
             max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
         }
 
-        /* ── HEADER ── */
+        /* ─────────────── HEADER ─────────────── */
         header {
-            text-align: center;
-            padding: 3rem 1rem 2rem;
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-bottom: 2px solid var(--primary-color);
-            border-radius: 15px;
-            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            border-bottom: 3px solid var(--primary);
+            border-radius: 14px;
+            padding: 2.5rem 2rem 2rem;
+            margin-bottom: 1.8rem;
+            text-align: center;
         }
 
-        .header-top {
+        .header-inner {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
+            margin-bottom: 1.4rem;
         }
 
         .avatar {
-            width: 100px; height: 100px; border-radius: 50%;
-            background: #334155;
-            border: 3px solid var(--primary-color);
+            width: 90px; height: 90px; border-radius: 50%;
+            background: var(--card2);
+            border: 3px solid var(--primary);
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; font-weight: 800; color: var(--primary-color);
-            flex-shrink: 0;
-            overflow: hidden;
+            font-size: 1.6rem; font-weight: 800; color: var(--primary);
+            flex-shrink: 0; overflow: hidden;
         }
         .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
         .header-text { text-align: left; }
+        @media (max-width: 520px) { .header-text { text-align: center; } }
 
-        h1 { margin: 0; font-size: 2.4rem; letter-spacing: 1px; }
-
-        .title {
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 1.05rem;
-            margin-top: 6px;
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 2.3rem);
+            letter-spacing: .04em; line-height: 1.1;
         }
-        .title2 {
-            color: var(--text-muted);
-            font-size: .95rem;
-            margin-top: 2px;
+        .title-main {
+            color: var(--primary); font-weight: 700;
+            font-size: clamp(.85rem, 2.5vw, 1rem);
+            margin-top: .35rem;
         }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 16px 28px;
-            margin-top: 1.5rem;
-            font-size: 0.88rem;
+        .title-sub {
+            color: var(--muted); font-size: clamp(.78rem, 2.2vw, .9rem);
+            margin-top: .15rem;
         }
 
-        .contact-info a, .contact-info span {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: 0.3s;
+        .contacts {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: .55rem 1.4rem;
+            font-size: clamp(.75rem, 2.5vw, .88rem);
+        }
+        .contacts a, .contacts span {
+            color: var(--muted); text-decoration: none;
             display: flex; align-items: center; gap: 6px;
+            transition: color .2s;
         }
-        .contact-info a:hover { color: var(--primary-color); }
-
-        .ci-icon {
+        .contacts a:hover { color: var(--primary); }
+        .c-icon {
             width: 20px; height: 20px; border-radius: 50%;
-            background: #334155;
+            background: var(--tag-bg);
             display: flex; align-items: center; justify-content: center;
-            font-size: .7rem; flex-shrink: 0;
+            font-size: .68rem; flex-shrink: 0;
         }
 
         .btn-cv {
             display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1.4rem;
-            transition: transform 0.2s, background .2s;
-            font-size: .9rem;
+            background: var(--primary);
+            color: #fff; padding: .65rem 1.6rem;
+            border-radius: 30px; text-decoration: none;
+            font-weight: 700; font-size: .88rem;
+            margin-top: 1.2rem;
+            transition: transform .2s, background .2s;
         }
-        .btn-cv:hover { transform: translateY(-3px); background: #2563eb; }
+        .btn-cv:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-        /* ── LAYOUT ── */
-        .main-content {
+        /* ─────────────── DESKTOP GRID ─────────────── */
+        .grid {
             display: grid;
-            grid-template-columns: 290px 1fr;
-            gap: 1.8rem;
+            grid-template-columns: 280px 1fr;
+            gap: 1.5rem;
             align-items: start;
         }
 
-        @media (max-width: 768px) {
-            .main-content { grid-template-columns: 1fr; }
-            .header-text { text-align: center; }
-            h1 { font-size: 1.8rem; }
-        }
-
-        /* ── SECTIONS ── */
+        /* ─────────────── SECTION CARDS ─────────────── */
         section {
-            background: var(--card-bg);
-            padding: 1.5rem;
+            background: var(--card);
+            padding: 1.4rem;
             border-radius: 12px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,.15);
+            margin-bottom: 1.4rem;
+            border: 1px solid var(--border);
         }
+        section:last-child { margin-bottom: 0; }
 
         h2 {
-            border-left: 4px solid var(--primary-color);
-            padding-left: 14px;
-            font-size: 1.1rem;
-            margin-top: 0;
-            margin-bottom: 1.2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+            font-size: clamp(.88rem, 2.5vw, 1rem);
             text-transform: uppercase;
-            letter-spacing: .06em;
+            letter-spacing: .1em;
+            margin-bottom: 1.1rem;
         }
 
-        /* ── COMPÉTENCES ── */
-        .skill-group { margin-bottom: 14px; }
-        .skill-group:last-child { margin-bottom: 0; }
-        .skill-group h3 {
-            font-size: .88rem;
-            color: var(--primary-color);
-            margin-bottom: 7px; margin-top: 0;
+        /* ─────────────── SKILLS ─────────────── */
+        .sg { margin-bottom: 13px; }
+        .sg:last-child { margin-bottom: 0; }
+        .sg h3 {
+            font-size: .82rem; color: var(--primary);
+            margin-bottom: 6px;
         }
-        .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
         .tag {
-            background: #334155;
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 0.78rem;
-            border: 1px solid #475569;
-            color: var(--text-main);
+            background: var(--tag-bg); border: 1px solid #475569;
+            border-radius: 6px; padding: 3px 10px;
+            font-size: .76rem; color: var(--text);
         }
 
-        /* ── LANGUES ── */
+        /* ─────────────── LANGUES ─────────────── */
         .lang-row {
             display: flex; justify-content: space-between; align-items: center;
-            padding: .4rem 0; border-bottom: 1px solid #334155; font-size: .88rem;
+            padding: .42rem 0; border-bottom: 1px solid var(--border);
+            font-size: .88rem;
         }
-        .lang-row:last-child { border-bottom: none; }
+        .lang-row:last-child { border: none; }
         .dots { display: flex; gap: 5px; }
         .dot {
             width: 9px; height: 9px; border-radius: 50%;
-            background: #334155; border: 1px solid #475569;
+            background: var(--border);
         }
-        .dot.on { background: var(--primary-color); border-color: var(--primary-color); }
+        .dot.on { background: var(--primary); }
 
-        /* ── EXPÉRIENCE & PROJETS ── */
+        /* ─────────────── ITEMS (exp / edu / proj) ─────────────── */
         .item {
-            margin-bottom: 1.3rem;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 1.2rem;
+            padding-bottom: 1.1rem; margin-bottom: 1.1rem;
+            border-bottom: 1px solid var(--border);
         }
-        .item:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+        .item:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
 
         .item-header {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            gap: 1rem; margin-bottom: .2rem;
+            display: flex; justify-content: space-between;
+            align-items: flex-start; gap: .8rem; margin-bottom: .2rem;
+            flex-wrap: wrap;
         }
-
-        .company {
-            font-weight: 700; font-size: .95rem; color: var(--text-main);
-        }
-
+        .company { font-weight: 700; font-size: .93rem; color: var(--text); }
         .date {
-            color: var(--primary-color); font-weight: 700;
-            font-size: .82rem; white-space: nowrap; flex-shrink: 0;
+            color: var(--primary); font-weight: 700;
+            font-size: .78rem; white-space: nowrap; flex-shrink: 0;
+            background: rgba(59,130,246,.1);
+            border: 1px solid rgba(59,130,246,.25);
+            border-radius: 20px; padding: 2px 10px;
         }
-
         .org {
-            font-size: .82rem; color: var(--text-muted);
-            border-bottom: 1px dotted #334155;
-            padding-bottom: .4rem; margin-bottom: .6rem; display: block;
+            font-size: .79rem; color: var(--muted);
+            border-bottom: 1px dotted var(--border);
+            padding-bottom: .4rem; margin-bottom: .55rem;
+            display: block; line-height: 1.5;
         }
+        .org.no-border { border: none; padding-bottom: 0; margin-bottom: 0; }
 
-        .description { font-size: .85rem; color: var(--text-muted); margin-top: .5rem; }
-
-        ul.desc-list {
-            padding-left: 1.1rem; margin: .4rem 0 0;
-            font-size: .85rem; color: var(--text-muted);
+        ul.dl {
+            padding-left: 1rem; margin-top: .4rem;
+            font-size: .83rem; color: var(--muted);
         }
-        ul.desc-list li { margin-bottom: .25rem; }
-        ul.desc-list.sub { padding-left: 1.3rem; margin-top: .3rem; }
-        ul.desc-list.sub li::marker { color: #475569; }
+        ul.dl li { margin-bottom: .25rem; }
+        ul.dl.sub { padding-left: 1.5rem; margin-top: .3rem; }
+        ul.dl.sub li::marker { color: var(--border); }
 
-        /* stack tags inline */
+        .multi-org {
+            display: flex; flex-direction: column; gap: .2rem;
+            margin-bottom: .6rem; font-size: .8rem; color: var(--muted);
+        }
+        .multi-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .2rem; }
+        .multi-date { color: var(--primary); font-weight: 700; font-size: .76rem; }
+
+        /* stack tags */
         .stack { display: flex; flex-wrap: wrap; gap: 5px; margin-top: .7rem; }
         .stag {
-            background: rgba(59,130,246,.12);
-            border: 1px solid rgba(59,130,246,.3);
+            background: rgba(59,130,246,.1);
+            border: 1px solid rgba(59,130,246,.28);
             color: #93c5fd;
-            padding: 2px 9px; border-radius: 5px; font-size: .76rem;
+            padding: 2px 9px; border-radius: 5px; font-size: .74rem;
         }
 
-        /* ── FOOTER ── */
+        /* ─────────────── FOOTER ─────────────── */
         footer {
-            text-align: center;
-            padding: 1.5rem;
-            color: var(--text-muted);
-            font-size: .8rem;
-            margin-top: 1rem;
+            text-align: center; padding: 1.5rem 1rem;
+            color: var(--muted); font-size: .78rem; margin-top: .5rem;
         }
-        footer span { color: var(--primary-color); }
+        footer span { color: var(--primary); }
+
+        /* ─────────────── RESPONSIVE BREAKPOINTS ─────────────── */
+
+        /* Tablette : réduire sidebar */
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 240px 1fr; gap: 1.2rem; }
+        }
+
+        /* Mobile : 1 colonne, nav burger */
+        @media (max-width: 700px) {
+            body { font-size: 14px; }
+
+            .mob-nav { display: flex; }
+
+            .container { padding: .8rem .85rem; }
+
+            header {
+                padding: 1.6rem 1rem 1.4rem;
+                margin-bottom: 1.2rem;
+                border-radius: 10px;
+            }
+
+            .header-inner { gap: 1.2rem; }
+            .avatar { width: 72px; height: 72px; font-size: 1.3rem; }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            /* Sur mobile : sidebar après le contenu principal */
+            .sidebar { order: 2; }
+            .main-col { order: 1; }
+
+            section { border-radius: 10px; padding: 1.1rem; }
+
+            h2 { font-size: .82rem; }
+
+            .contacts { gap: .45rem .9rem; }
+
+            /* accordion mobile */
+            .acc-header {
+                display: flex; justify-content: space-between; align-items: center;
+                cursor: pointer; user-select: none;
+            }
+            .acc-arrow {
+                font-size: .9rem; color: var(--primary);
+                transition: transform .3s; flex-shrink: 0;
+            }
+            .acc-arrow.open { transform: rotate(180deg); }
+            .acc-body { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
+            .acc-body.open { max-height: 2000px; }
+        }
+
+        @media (max-width: 400px) {
+            h1 { font-size: 1.35rem; }
+            .avatar { width: 62px; height: 62px; }
+            .btn-cv { font-size: .8rem; padding: .55rem 1.2rem; }
+        }
     </style>
 </head>
 <body>
 
+<!-- NAV BURGER MOBILE -->
+<nav class="mob-nav">
+    <span class="mob-nav-name">A. Zaama</span>
+    <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+<div class="mob-menu" id="mob-menu">
+    <a href="#experience" onclick="closeMenu()">Expérience</a>
+    <a href="#projets" onclick="closeMenu()">Projets</a>
+    <a href="#competences" onclick="closeMenu()">Compétences</a>
+    <a href="#formation" onclick="closeMenu()">Formation</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
 <div class="container">
 
     <!-- HEADER -->
-    <header>
-        <div class="header-top">
+    <header id="contact">
+        <div class="header-inner">
             <div class="avatar">AZ
-                <!-- Pour votre photo : remplacez AZ par <img src="photo.jpg" alt="Photo"/> -->
+                <!-- Remplacez AZ par : <img src="photo.jpg" alt="Photo"/> -->
             </div>
             <div class="header-text">
                 <h1>ABDELOUAHED ZAAMA</h1>
-                <div class="title">Enseignant de Mathématiques</div>
-                <div class="title2">Ingénieur d'État en Informatique</div>
+                <div class="title-main">Enseignant de Mathématiques</div>
+                <div class="title-sub">Ingénieur d'État en Informatique · Doctorant ENSA</div>
             </div>
         </div>
-
-        <div class="contact-info">
-            <span>
-                <span class="ci-icon">📞</span> 06 18 39 03 78
-            </span>
-            <a href="mailto:zaama22@gmail.com">
-                <span class="ci-icon">✉</span> zaama22@gmail.com
-            </a>
-            <span>
-                <span class="ci-icon">📍</span> Berrechid, Maroc
-            </span>
-            <a href="https://linkedin.com/in/" target="_blank">
-                <span class="ci-icon">in</span> Profil LinkedIn
-            </a>
-            <a href="https://github.com/" target="_blank">
-                <span class="ci-icon">⌥</span> GitHub
-            </a>
+        <div class="contacts">
+            <a href="tel:+212618390378"><span class="c-icon">📞</span>06 18 39 03 78</a>
+            <a href="mailto:zaama22@gmail.com"><span class="c-icon">✉</span>zaama22@gmail.com</a>
+            <span><span class="c-icon">📍</span>Berrechid, Maroc</span>
+            <a href="https://linkedin.com/in/" target="_blank"><span class="c-icon">in</span>LinkedIn</a>
+            <a href="https://github.com/" target="_blank"><span class="c-icon">⌥</span>GitHub</a>
         </div>
-
         <a href="cv.pdf" class="btn-cv" target="_blank">⬇ Télécharger mon CV</a>
     </header>
 
-    <!-- MAIN GRID -->
-    <div class="main-content">
+    <!-- GRID -->
+    <div class="grid">
 
         <!-- ── SIDEBAR ── -->
-        <aside>
+        <aside class="sidebar">
 
-            <section>
-                <h2>Compétences</h2>
-
-                <div class="skill-group">
-                    <h3>Langages de programmation</h3>
-                    <div class="tags">
-                        <span class="tag">Java / J2EE</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">C#</span>
-                    </div>
+            <section id="competences">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <h2 style="margin:0">Compétences</h2>
+                    <span class="acc-arrow open">▼</span>
                 </div>
-
-                <div class="skill-group">
-                    <h3>Frontend</h3>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Flutter</span>
-                        <span class="tag">Angular</span>
-                        <span class="tag">Ionic</span>
+                <div class="acc-body open" style="padding-top:.9rem">
+                    <div class="sg"><h3>Langages</h3>
+                        <div class="tags">
+                            <span class="tag">Java / J2EE</span><span class="tag">Python</span>
+                            <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+                            <span class="tag">C++</span><span class="tag">C#</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Backend &amp; Frameworks</h3>
-                    <div class="tags">
-                        <span class="tag">Spring Boot</span>
-                        <span class="tag">.NET Core</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">REST API</span>
-                        <span class="tag">JWT</span>
+                    <div class="sg"><h3>Frontend</h3>
+                        <div class="tags">
+                            <span class="tag">React</span><span class="tag">Flutter</span>
+                            <span class="tag">Angular</span><span class="tag">Ionic</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Bases de données</h3>
-                    <div class="tags">
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">Oracle</span>
-                        <span class="tag">SQL Server</span>
+                    <div class="sg"><h3>Backend &amp; Frameworks</h3>
+                        <div class="tags">
+                            <span class="tag">Spring Boot</span><span class="tag">.NET Core</span>
+                            <span class="tag">Flask</span><span class="tag">REST API</span><span class="tag">JWT</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Data Science &amp; IA</h3>
-                    <div class="tags">
-                        <span class="tag">Pandas</span>
-                        <span class="tag">NumPy</span>
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag">OpenCV</span>
-                        <span class="tag">YOLO</span>
-                        <span class="tag">DeepFace</span>
+                    <div class="sg"><h3>Bases de données</h3>
+                        <div class="tags">
+                            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
+                            <span class="tag">Oracle</span><span class="tag">SQL Server</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Big Data &amp; BI</h3>
-                    <div class="tags">
-                        <span class="tag">Hadoop</span>
-                        <span class="tag">Spark</span>
-                        <span class="tag">Kafka</span>
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Tableau</span>
-                        <span class="tag">MicroStrategy</span>
+                    <div class="sg"><h3>Data Science &amp; IA</h3>
+                        <div class="tags">
+                            <span class="tag">Pandas</span><span class="tag">NumPy</span>
+                            <span class="tag">Matplotlib</span><span class="tag">OpenCV</span>
+                            <span class="tag">YOLO</span><span class="tag">DeepFace</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Cloud &amp; DevOps</h3>
-                    <div class="tags">
-                        <span class="tag">AWS</span>
-                        <span class="tag">Azure</span>
-                        <span class="tag">Databricks</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Git / GitHub</span>
-                        <span class="tag">CI/CD</span>
+                    <div class="sg"><h3>Big Data &amp; BI</h3>
+                        <div class="tags">
+                            <span class="tag">Hadoop</span><span class="tag">Spark</span>
+                            <span class="tag">Kafka</span><span class="tag">Power BI</span>
+                            <span class="tag">Tableau</span><span class="tag">MicroStrategy</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Outils &amp; Méthodologies</h3>
-                    <div class="tags">
-                        <span class="tag">JIRA</span>
-                        <span class="tag">Postman</span>
-                        <span class="tag">Swagger</span>
-                        <span class="tag">UML</span>
-                        <span class="tag">Scrum</span>
-                        <span class="tag">SonarQube</span>
-                        <span class="tag">Trello</span>
+                    <div class="sg"><h3>Cloud &amp; DevOps</h3>
+                        <div class="tags">
+                            <span class="tag">AWS</span><span class="tag">Azure</span>
+                            <span class="tag">Databricks</span><span class="tag">Docker</span>
+                            <span class="tag">Git / GitHub</span><span class="tag">CI/CD</span>
+                        </div>
+                    </div>
+                    <div class="sg"><h3>Outils &amp; Méthodes</h3>
+                        <div class="tags">
+                            <span class="tag">JIRA</span><span class="tag">Postman</span>
+                            <span class="tag">Swagger</span><span class="tag">UML</span>
+                            <span class="tag">Scrum</span><span class="tag">SonarQube</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2>Langues</h2>
-                <div class="lang-row">
-                    <span>Arabe</span>
-                    <div class="dots">
-                        <div class="dot on"></div><div class="dot on"></div>
-                        <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
-                    </div>
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <h2 style="margin:0">Langues</h2>
+                    <span class="acc-arrow open">▼</span>
                 </div>
-                <div class="lang-row">
-                    <span>Français</span>
-                    <div class="dots">
-                        <div class="dot on"></div><div class="dot on"></div>
-                        <div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+                <div class="acc-body open" style="padding-top:.7rem">
+                    <div class="lang-row"><span>Arabe</span>
+                        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
                     </div>
-                </div>
-                <div class="lang-row">
-                    <span>Anglais</span>
-                    <div class="dots">
-                        <div class="dot on"></div><div class="dot on"></div>
-                        <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+                    <div class="lang-row"><span>Français</span>
+                        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+                    </div>
+                    <div class="lang-row"><span>Anglais</span>
+                        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2>Intérêts</h2>
-                <p style="font-size:.88rem;color:var(--text-muted);margin:0">
-                    Tech open-source, Hackathons, Randonnée en montagne.
-                </p>
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <h2 style="margin:0">Intérêts</h2>
+                    <span class="acc-arrow open">▼</span>
+                </div>
+                <div class="acc-body open" style="padding-top:.7rem">
+                    <p style="font-size:.85rem;color:var(--muted)">Tech open-source · Hackathons · Randonnée en montagne</p>
+                </div>
             </section>
 
-            <section>
-                <h2>Formation</h2>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company" style="font-size:.88rem">Doctorat en Informatique</span>
-                        <span class="date">2025 →</span>
-                    </div>
-                    <span class="org">ENSA Berrechid</span>
+            <section id="formation">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <h2 style="margin:0">Formation</h2>
+                    <span class="acc-arrow open">▼</span>
                 </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company" style="font-size:.88rem">Ingénieur d'État — Informatique</span>
-                        <span class="date">2023–2025</span>
+                <div class="acc-body open" style="padding-top:.9rem">
+                    <div class="item">
+                        <div class="item-header">
+                            <span class="company" style="font-size:.85rem">Doctorat en Informatique</span>
+                            <span class="date">2025 →</span>
+                        </div>
+                        <span class="org no-border">ENSA Berrechid</span>
                     </div>
-                    <span class="org">ESTEM, Casablanca<br/>Sciences de Données &amp; Dév. Logiciel</span>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company" style="font-size:.88rem">Licence Pro. LPEM</span>
-                        <span class="date">2015–2016</span>
+                    <div class="item">
+                        <div class="item-header">
+                            <span class="company" style="font-size:.85rem">Ingénieur d'État — Informatique</span>
+                            <span class="date">2023–2025</span>
+                        </div>
+                        <span class="org no-border">ESTEM, Casablanca<br/>Sciences de Données &amp; Dév.</span>
                     </div>
-                    <span class="org">ENS Casablanca — Maths</span>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company" style="font-size:.88rem">Licence Fondamentale</span>
-                        <span class="date">2015</span>
+                    <div class="item">
+                        <div class="item-header">
+                            <span class="company" style="font-size:.85rem">Licence Pro. LPEM</span>
+                            <span class="date">2015–2016</span>
+                        </div>
+                        <span class="org no-border">ENS Casablanca — Maths</span>
                     </div>
-                    <span class="org">FSA Agadir — Maths</span>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company" style="font-size:.88rem">Bac Série Maths A</span>
-                        <span class="date">2010</span>
+                    <div class="item">
+                        <div class="item-header">
+                            <span class="company" style="font-size:.85rem">Licence Fondamentale</span>
+                            <span class="date">2015</span>
+                        </div>
+                        <span class="org no-border">FSA Agadir — Maths</span>
                     </div>
-                    <span class="org" style="border:none;padding:0;margin:0">Lycée Sidi Ahmed Bennacer, Zagora</span>
+                    <div class="item">
+                        <div class="item-header">
+                            <span class="company" style="font-size:.85rem">Bac Série Maths A</span>
+                            <span class="date">2010</span>
+                        </div>
+                        <span class="org no-border">Lycée Sidi Ahmed Bennacer, Zagora</span>
+                    </div>
                 </div>
-
             </section>
 
         </aside>
 
         <!-- ── CONTENU PRINCIPAL ── -->
-        <main>
+        <main class="main-col">
 
-            <!-- EXPÉRIENCE -->
-            <section>
+            <section id="experience">
                 <h2>Expérience Professionnelle</h2>
 
                 <div class="item">
@@ -466,8 +520,8 @@
                         <span class="company">Enseignant vacataire — Informatique / Big Data</span>
                         <span class="date">2025/2026</span>
                     </div>
-                    <span class="org">École Nationale des Sciences Appliquées ENSA-Berrechid<br/>Ministère de l'Enseignement Supérieur</span>
-                    <ul class="desc-list">
+                    <span class="org">ENSA-Berrechid · Ministère de l'Enseignement Supérieur</span>
+                    <ul class="dl">
                         <li>Transmission des compétences en traitement massif des données.</li>
                         <li>Introduction aux écosystèmes Big Data (Hadoop, Spark, Kafka).</li>
                         <li>Développement d'exemples concrets basés sur les besoins industriels.</li>
@@ -477,12 +531,12 @@
                 <div class="item">
                     <div class="item-header">
                         <span class="company">Enseignant titulaire — Mathématiques</span>
-                        <span class="date">Sept 2017 – Présent</span>
+                        <span class="date">2017 – Présent</span>
                     </div>
-                    <span class="org">Lycée Ibn Rochd, Direction Berrechid — Ministère de l'Éducation Nationale</span>
-                    <ul class="desc-list">
-                        <li>Enseignement des mathématiques à des élèves de collège et de lycée.</li>
-                        <li>Conception et mise en place de projets pédagogiques innovants.</li>
+                    <span class="org">Lycée Ibn Rochd, Berrechid · Min. de l'Éducation Nationale</span>
+                    <ul class="dl">
+                        <li>Enseignement des mathématiques — collège et lycée.</li>
+                        <li>Conception de projets pédagogiques innovants.</li>
                         <li>Organisation et animation de cours théoriques et pratiques.</li>
                         <li>Organisation des compétitions olympiades de mathématiques.</li>
                     </ul>
@@ -492,32 +546,21 @@
                     <div class="item-header">
                         <span class="company">Enseignant vacataire — Mathématiques</span>
                     </div>
-                    <div style="font-size:.82rem;color:var(--text-muted);margin-bottom:.6rem;display:flex;flex-direction:column;gap:.2rem;">
-                        <div style="display:flex;justify-content:space-between;">
-                            <span>Groupe Scolaire ASSAFA ALMARWA, Berrechid</span>
-                            <span style="color:var(--primary-color);font-weight:700;">2022/2023</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;">
-                            <span>Groupe Scolaire MIRANDA, Berrechid</span>
-                            <span style="color:var(--primary-color);font-weight:700;">2023/2024</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;">
-                            <span>Groupe Scolaire JABRANE, Berrechid</span>
-                            <span style="color:var(--primary-color);font-weight:700;">2021/2022</span>
-                        </div>
+                    <div class="multi-org">
+                        <div class="multi-row"><span>Groupe Scolaire ASSAFA ALMARWA, Berrechid</span><span class="multi-date">2022/2023</span></div>
+                        <div class="multi-row"><span>Groupe Scolaire MIRANDA, Berrechid</span><span class="multi-date">2023/2024</span></div>
+                        <div class="multi-row"><span>Groupe Scolaire JABRANE, Berrechid</span><span class="multi-date">2021/2022</span></div>
                     </div>
-                    <ul class="desc-list">
+                    <ul class="dl">
                         <li>Enseignement en classe de TCS, 1ᵉʳ et 2ᵉᵐᵉ Bac.</li>
                         <li>Création de supports de cours adaptés au niveau des élèves.</li>
                         <li>Accompagnement personnalisé des élèves en difficulté.</li>
-                        <li>Participation à l'organisation d'événements scientifiques.</li>
                     </ul>
                 </div>
 
             </section>
 
-            <!-- PROJETS -->
-            <section>
+            <section id="projets">
                 <h2>Projets</h2>
 
                 <div class="item">
@@ -526,21 +569,20 @@
                         <span class="date">2025</span>
                     </div>
                     <span class="org">Projet de Fin d'Études</span>
-                    <ul class="desc-list">
-                        <li>Développement d'une application complète (backend + frontend) pour gérer l'accès du personnel et des véhicules dans un site industriel.</li>
-                        <li>Mise en place d'une authentification sécurisée (JWT).</li>
+                    <ul class="dl">
+                        <li>Application complète (backend + frontend) pour gérer l'accès du personnel et des véhicules dans un site industriel.</li>
+                        <li>Authentification sécurisée (JWT).</li>
                         <li>Intégration de modules IA :
-                            <ul class="desc-list sub">
-                                <li>Détection de plaques d'immatriculation (LPR) via YOLOv5 + OCR (Tess4J).</li>
+                            <ul class="dl sub">
+                                <li>Détection de plaques via YOLOv5 + OCR (Tess4J).</li>
                                 <li>Reconnaissance faciale pour vérifier l'identité des utilisateurs.</li>
                             </ul>
                         </li>
-                        <li>Tableau de bord interactif pour la gestion des utilisateurs, véhicules et historiques d'accès.</li>
+                        <li>Tableau de bord interactif : utilisateurs, véhicules, historiques.</li>
                     </ul>
                     <div class="stack">
-                        <span class="stag">Spring Boot</span><span class="stag">React</span>
-                        <span class="stag">Flutter</span><span class="stag">PostgreSQL</span>
-                        <span class="stag">YOLOv5</span><span class="stag">JWT</span><span class="stag">Tess4J</span>
+                        <span class="stag">Spring Boot</span><span class="stag">React</span><span class="stag">Flutter</span>
+                        <span class="stag">PostgreSQL</span><span class="stag">YOLOv5</span><span class="stag">JWT</span><span class="stag">Tess4J</span>
                     </div>
                 </div>
 
@@ -550,20 +592,14 @@
                         <span class="date">2025</span>
                     </div>
                     <span class="org">Freelance</span>
-                    <ul class="desc-list">
-                        <li>Développement d'un système pour lire les données CAN Bus des véhicules (vitesse, kilométrage, consommation).</li>
-                        <li>Connexion à une API GPS pour récupérer la position en temps réel.</li>
-                        <li>Conception d'une interface web affichant les informations en direct :
-                            <ul class="desc-list sub">
-                                <li>Kilométrage cumulé &amp; consommation de carburant</li>
-                                <li>Localisation et suivi en temps réel</li>
-                            </ul>
-                        </li>
+                    <ul class="dl">
+                        <li>Lecture des données CAN Bus des véhicules (vitesse, kilométrage, consommation) via Raspberry Pi / ESP32.</li>
+                        <li>Connexion à une API GPS pour la position en temps réel.</li>
+                        <li>Interface web affichant kilométrage, consommation et localisation en direct.</li>
                     </ul>
                     <div class="stack">
                         <span class="stag">C#</span><span class="stag">MAUI</span>
-                        <span class="stag">REST API GPS</span><span class="stag">Raspberry Pi</span>
-                        <span class="stag">ESP32</span>
+                        <span class="stag">REST API GPS</span><span class="stag">Raspberry Pi</span><span class="stag">ESP32</span>
                     </div>
                 </div>
 
@@ -573,9 +609,45 @@
     </div>
 
     <footer>
-        © 2025 <span>Abdelouahed Zaama</span> — Berrechid, Maroc · zaama22@gmail.com
+        © 2025 <span>Abdelouahed Zaama</span> · Berrechid, Maroc · zaama22@gmail.com
     </footer>
 
 </div>
+
+<script>
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const menu   = document.getElementById('mob-menu');
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        menu.classList.toggle('open');
+        document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeMenu() {
+        burger.classList.remove('open');
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // Accordion : ouvre/ferme les sections sur mobile
+    function toggleAcc(header) {
+        const arrow = header.querySelector('.acc-arrow');
+        const body  = header.nextElementSibling;
+        const isOpen = body.classList.contains('open');
+        body.classList.toggle('open', !isOpen);
+        arrow.classList.toggle('open', !isOpen);
+        if (!isOpen) {
+            body.style.maxHeight = body.scrollHeight + 'px';
+        } else {
+            body.style.maxHeight = '0';
+        }
+    }
+
+    // Init accordion : all open by default, set max-height
+    document.querySelectorAll('.acc-body.open').forEach(b => {
+        b.style.maxHeight = b.scrollHeight + 2000 + 'px';
+    });
+</script>
+
 </body>
 </html>
