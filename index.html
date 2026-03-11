@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdelouahed ZAAMA | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
         :root {
             --primary-color: #3b82f6;
@@ -13,6 +12,8 @@
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -24,205 +25,557 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
 
-        /* Header & Profil */
+        /* ── HEADER ── */
         header {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 3rem 1rem 2rem;
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border-bottom: 2px solid var(--primary-color);
             border-radius: 15px;
             margin-bottom: 2rem;
         }
 
-        h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
-        .title { color: var(--primary-color); font-weight: bold; font-size: 1.2rem; margin-top: 10px; }
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .avatar {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: #334155;
+            border: 3px solid var(--primary-color);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; font-weight: 800; color: var(--primary-color);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+        .header-text { text-align: left; }
+
+        h1 { margin: 0; font-size: 2.4rem; letter-spacing: 1px; }
+
+        .title {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-top: 6px;
+        }
+        .title2 {
+            color: var(--text-muted);
+            font-size: .95rem;
+            margin-top: 2px;
+        }
 
         .contact-info {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-            font-size: 0.9rem;
+            gap: 16px 28px;
+            margin-top: 1.5rem;
+            font-size: 0.88rem;
         }
 
-        .contact-info a { color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+        .contact-info a, .contact-info span {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: 0.3s;
+            display: flex; align-items: center; gap: 6px;
+        }
         .contact-info a:hover { color: var(--primary-color); }
 
-        /* Layout */
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .main-content { grid-template-columns: 1fr; }
-        }
-
-        section {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            border-left: 4px solid var(--primary-color);
-            padding-left: 15px;
-            font-size: 1.3rem;
-            margin-top: 0;
-            text-transform: uppercase;
-        }
-
-        /* Compétences */
-        .skill-group { margin-bottom: 15px; }
-        .skill-group h3 { font-size: 1rem; color: var(--primary-color); margin-bottom: 8px; }
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag {
+        .ci-icon {
+            width: 20px; height: 20px; border-radius: 50%;
             background: #334155;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            border: 1px solid #475569;
+            display: flex; align-items: center; justify-content: center;
+            font-size: .7rem; flex-shrink: 0;
         }
-
-        /* Expériences & Études */
-        .item { margin-bottom: 20px; border-bottom: 1px solid #334155; padding-bottom: 15px; }
-        .item:last-child { border: none; }
-        .item-header { display: flex; justify-content: space-between; align-items: flex-start; }
-        .date { color: var(--primary-color); font-weight: bold; font-size: 0.9rem; }
-        .company { font-weight: bold; display: block; color: var(--text-main); }
-        .description { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; }
-
-        ul { padding-left: 1.2rem; margin: 5px 0; }
 
         .btn-cv {
             display: inline-block;
             background: var(--primary-color);
             color: white;
-            padding: 12px 25px;
+            padding: 10px 24px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
-            transition: transform 0.2s;
+            margin-top: 1.4rem;
+            transition: transform 0.2s, background .2s;
+            font-size: .9rem;
         }
-        .btn-cv:hover { transform: translateY(-3px); }
+        .btn-cv:hover { transform: translateY(-3px); background: #2563eb; }
+
+        /* ── LAYOUT ── */
+        .main-content {
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 1.8rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .main-content { grid-template-columns: 1fr; }
+            .header-text { text-align: center; }
+            h1 { font-size: 1.8rem; }
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,.15);
+        }
+
+        h2 {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 14px;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* ── COMPÉTENCES ── */
+        .skill-group { margin-bottom: 14px; }
+        .skill-group:last-child { margin-bottom: 0; }
+        .skill-group h3 {
+            font-size: .88rem;
+            color: var(--primary-color);
+            margin-bottom: 7px; margin-top: 0;
+        }
+        .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+        .tag {
+            background: #334155;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            border: 1px solid #475569;
+            color: var(--text-main);
+        }
+
+        /* ── LANGUES ── */
+        .lang-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: .4rem 0; border-bottom: 1px solid #334155; font-size: .88rem;
+        }
+        .lang-row:last-child { border-bottom: none; }
+        .dots { display: flex; gap: 5px; }
+        .dot {
+            width: 9px; height: 9px; border-radius: 50%;
+            background: #334155; border: 1px solid #475569;
+        }
+        .dot.on { background: var(--primary-color); border-color: var(--primary-color); }
+
+        /* ── EXPÉRIENCE & PROJETS ── */
+        .item {
+            margin-bottom: 1.3rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 1.2rem;
+        }
+        .item:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .item-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            gap: 1rem; margin-bottom: .2rem;
+        }
+
+        .company {
+            font-weight: 700; font-size: .95rem; color: var(--text-main);
+        }
+
+        .date {
+            color: var(--primary-color); font-weight: 700;
+            font-size: .82rem; white-space: nowrap; flex-shrink: 0;
+        }
+
+        .org {
+            font-size: .82rem; color: var(--text-muted);
+            border-bottom: 1px dotted #334155;
+            padding-bottom: .4rem; margin-bottom: .6rem; display: block;
+        }
+
+        .description { font-size: .85rem; color: var(--text-muted); margin-top: .5rem; }
+
+        ul.desc-list {
+            padding-left: 1.1rem; margin: .4rem 0 0;
+            font-size: .85rem; color: var(--text-muted);
+        }
+        ul.desc-list li { margin-bottom: .25rem; }
+        ul.desc-list.sub { padding-left: 1.3rem; margin-top: .3rem; }
+        ul.desc-list.sub li::marker { color: #475569; }
+
+        /* stack tags inline */
+        .stack { display: flex; flex-wrap: wrap; gap: 5px; margin-top: .7rem; }
+        .stag {
+            background: rgba(59,130,246,.12);
+            border: 1px solid rgba(59,130,246,.3);
+            color: #93c5fd;
+            padding: 2px 9px; border-radius: 5px; font-size: .76rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: .8rem;
+            margin-top: 1rem;
+        }
+        footer span { color: var(--primary-color); }
     </style>
 </head>
 <body>
 
 <div class="container">
+
+    <!-- HEADER -->
     <header>
-        <h1>ABDELOUAHED ZAAMA</h1>
-        <div class="title">Enseignant de Mathématiques & Ingénieur d'État en Informatique</div>
-        <div class="contact-info">
-            <span><i class="fas fa-phone"></i> 06 18 39 03 78</span>
-            <a href="mailto:zaama22@gmail.com"><i class="fas fa-envelope"></i> zaama22@gmail.com</a>
-            <span><i class="fas fa-map-marker-alt"></i> Berrechid, Maroc</span>
-            <a href="#"><i class="fab fa-linkedin"></i> Profil LinkedIn</a>
+        <div class="header-top">
+            <div class="avatar">AZ
+                <!-- Pour votre photo : remplacez AZ par <img src="photo.jpg" alt="Photo"/> -->
+            </div>
+            <div class="header-text">
+                <h1>ABDELOUAHED ZAAMA</h1>
+                <div class="title">Enseignant de Mathématiques</div>
+                <div class="title2">Ingénieur d'État en Informatique</div>
+            </div>
         </div>
-        <a href="cv.pdf" class="btn-cv" target="_blank">Télécharger mon CV PDF</a>
+
+        <div class="contact-info">
+            <span>
+                <span class="ci-icon">📞</span> 06 18 39 03 78
+            </span>
+            <a href="mailto:zaama22@gmail.com">
+                <span class="ci-icon">✉</span> zaama22@gmail.com
+            </a>
+            <span>
+                <span class="ci-icon">📍</span> Berrechid, Maroc
+            </span>
+            <a href="https://linkedin.com/in/" target="_blank">
+                <span class="ci-icon">in</span> Profil LinkedIn
+            </a>
+            <a href="https://github.com/" target="_blank">
+                <span class="ci-icon">⌥</span> GitHub
+            </a>
+        </div>
+
+        <a href="cv.pdf" class="btn-cv" target="_blank">⬇ Télécharger mon CV</a>
     </header>
 
+    <!-- MAIN GRID -->
     <div class="main-content">
-        <!-- Sidebar Gauche -->
+
+        <!-- ── SIDEBAR ── -->
         <aside>
+
             <section>
                 <h2>Compétences</h2>
+
                 <div class="skill-group">
-                    <h3>Programmation</h3>
+                    <h3>Langages de programmation</h3>
                     <div class="tags">
-                        <span class="tag">Java / J2EE</span><span class="tag">Python</span>
-                        <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+                        <span class="tag">Java / J2EE</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">C#</span>
                     </div>
                 </div>
+
                 <div class="skill-group">
-                    <h3>Data & IA</h3>
+                    <h3>Frontend</h3>
                     <div class="tags">
-                        <span class="tag">OpenCV</span><span class="tag">YOLO</span>
-                        <span class="tag">Power BI</span><span class="tag">Pandas/NumPy</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">Ionic</span>
                     </div>
                 </div>
+
                 <div class="skill-group">
-                    <h3>Cloud & DevOps</h3>
+                    <h3>Backend &amp; Frameworks</h3>
                     <div class="tags">
-                        <span class="tag">AWS</span><span class="tag">Azure</span>
-                        <span class="tag">Docker</span><span class="tag">Git/GitHub</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">.NET Core</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">JWT</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Bases de données</h3>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Oracle</span>
+                        <span class="tag">SQL Server</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Data Science &amp; IA</h3>
+                    <div class="tags">
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">YOLO</span>
+                        <span class="tag">DeepFace</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Big Data &amp; BI</h3>
+                    <div class="tags">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag">Spark</span>
+                        <span class="tag">Kafka</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">MicroStrategy</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Cloud &amp; DevOps</h3>
+                    <div class="tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Databricks</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Git / GitHub</span>
+                        <span class="tag">CI/CD</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Outils &amp; Méthodologies</h3>
+                    <div class="tags">
+                        <span class="tag">JIRA</span>
+                        <span class="tag">Postman</span>
+                        <span class="tag">Swagger</span>
+                        <span class="tag">UML</span>
+                        <span class="tag">Scrum</span>
+                        <span class="tag">SonarQube</span>
+                        <span class="tag">Trello</span>
                     </div>
                 </div>
             </section>
 
             <section>
                 <h2>Langues</h2>
-                <p>Arabe (Maternel), Français (Courant), Anglais (Technique)</p>
+                <div class="lang-row">
+                    <span>Arabe</span>
+                    <div class="dots">
+                        <div class="dot on"></div><div class="dot on"></div>
+                        <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+                    </div>
+                </div>
+                <div class="lang-row">
+                    <span>Français</span>
+                    <div class="dots">
+                        <div class="dot on"></div><div class="dot on"></div>
+                        <div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+                    </div>
+                </div>
+                <div class="lang-row">
+                    <span>Anglais</span>
+                    <div class="dots">
+                        <div class="dot on"></div><div class="dot on"></div>
+                        <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+                    </div>
+                </div>
             </section>
 
             <section>
                 <h2>Intérêts</h2>
-                <p>Open-source, Hackathons, Randonnée en montagne.</p>
+                <p style="font-size:.88rem;color:var(--text-muted);margin:0">
+                    Tech open-source, Hackathons, Randonnée en montagne.
+                </p>
             </section>
+
+            <section>
+                <h2>Formation</h2>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="company" style="font-size:.88rem">Doctorat en Informatique</span>
+                        <span class="date">2025 →</span>
+                    </div>
+                    <span class="org">ENSA Berrechid</span>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="company" style="font-size:.88rem">Ingénieur d'État — Informatique</span>
+                        <span class="date">2023–2025</span>
+                    </div>
+                    <span class="org">ESTEM, Casablanca<br/>Sciences de Données &amp; Dév. Logiciel</span>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="company" style="font-size:.88rem">Licence Pro. LPEM</span>
+                        <span class="date">2015–2016</span>
+                    </div>
+                    <span class="org">ENS Casablanca — Maths</span>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="company" style="font-size:.88rem">Licence Fondamentale</span>
+                        <span class="date">2015</span>
+                    </div>
+                    <span class="org">FSA Agadir — Maths</span>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="company" style="font-size:.88rem">Bac Série Maths A</span>
+                        <span class="date">2010</span>
+                    </div>
+                    <span class="org" style="border:none;padding:0;margin:0">Lycée Sidi Ahmed Bennacer, Zagora</span>
+                </div>
+
+            </section>
+
         </aside>
 
-        <!-- Contenu Principal -->
+        <!-- ── CONTENU PRINCIPAL ── -->
         <main>
+
+            <!-- EXPÉRIENCE -->
             <section>
                 <h2>Expérience Professionnelle</h2>
+
                 <div class="item">
                     <div class="item-header">
-                        <span class="company">Enseignant titulaire en Mathématiques</span>
-                        <span class="date">2017 - Présent</span>
+                        <span class="company">Enseignant vacataire — Informatique / Big Data</span>
+                        <span class="date">2025/2026</span>
                     </div>
-                    <span class="description">Lycée Ibn rochd, Berrechid - Ministère de l'Éducation Nationale</span>
-                    <ul class="description">
-                        <li>Enseignement aux élèves de collège et de lycée.</li>
-                        <li>Conception de projets pédagogiques innovants.</li>
-                        <li>Organisation de compétitions d'olympiades de mathématiques.</li>
+                    <span class="org">École Nationale des Sciences Appliquées ENSA-Berrechid<br/>Ministère de l'Enseignement Supérieur</span>
+                    <ul class="desc-list">
+                        <li>Transmission des compétences en traitement massif des données.</li>
+                        <li>Introduction aux écosystèmes Big Data (Hadoop, Spark, Kafka).</li>
+                        <li>Développement d'exemples concrets basés sur les besoins industriels.</li>
                     </ul>
                 </div>
+
                 <div class="item">
                     <div class="item-header">
-                        <span class="company">Enseignant Vacataire</span>
-                        <span class="date">2022 - 2024</span>
+                        <span class="company">Enseignant titulaire — Mathématiques</span>
+                        <span class="date">Sept 2017 – Présent</span>
                     </div>
-                    <span class="description">Groupe Scolaire ASSAFA ALMARWA & MIRANDA</span>
+                    <span class="org">Lycée Ibn Rochd, Direction Berrechid — Ministère de l'Éducation Nationale</span>
+                    <ul class="desc-list">
+                        <li>Enseignement des mathématiques à des élèves de collège et de lycée.</li>
+                        <li>Conception et mise en place de projets pédagogiques innovants.</li>
+                        <li>Organisation et animation de cours théoriques et pratiques.</li>
+                        <li>Organisation des compétitions olympiades de mathématiques.</li>
+                    </ul>
                 </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="company">Enseignant vacataire — Mathématiques</span>
+                    </div>
+                    <div style="font-size:.82rem;color:var(--text-muted);margin-bottom:.6rem;display:flex;flex-direction:column;gap:.2rem;">
+                        <div style="display:flex;justify-content:space-between;">
+                            <span>Groupe Scolaire ASSAFA ALMARWA, Berrechid</span>
+                            <span style="color:var(--primary-color);font-weight:700;">2022/2023</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;">
+                            <span>Groupe Scolaire MIRANDA, Berrechid</span>
+                            <span style="color:var(--primary-color);font-weight:700;">2023/2024</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;">
+                            <span>Groupe Scolaire JABRANE, Berrechid</span>
+                            <span style="color:var(--primary-color);font-weight:700;">2021/2022</span>
+                        </div>
+                    </div>
+                    <ul class="desc-list">
+                        <li>Enseignement en classe de TCS, 1ᵉʳ et 2ᵉᵐᵉ Bac.</li>
+                        <li>Création de supports de cours adaptés au niveau des élèves.</li>
+                        <li>Accompagnement personnalisé des élèves en difficulté.</li>
+                        <li>Participation à l'organisation d'événements scientifiques.</li>
+                    </ul>
+                </div>
+
             </section>
 
+            <!-- PROJETS -->
             <section>
-                <h2>Éducation</h2>
+                <h2>Projets</h2>
+
                 <div class="item">
                     <div class="item-header">
-                        <span class="company">Diplôme d'Ingénieur d'État en Informatique</span>
-                        <span class="date">2023 - 2025</span>
+                        <span class="company">Système Intelligent de Contrôle et Gestion des Accès Industriels</span>
+                        <span class="date">2025</span>
                     </div>
-                    <span class="description">ESTEM Casablanca - Génie Logiciel & Développement</span>
+                    <span class="org">Projet de Fin d'Études</span>
+                    <ul class="desc-list">
+                        <li>Développement d'une application complète (backend + frontend) pour gérer l'accès du personnel et des véhicules dans un site industriel.</li>
+                        <li>Mise en place d'une authentification sécurisée (JWT).</li>
+                        <li>Intégration de modules IA :
+                            <ul class="desc-list sub">
+                                <li>Détection de plaques d'immatriculation (LPR) via YOLOv5 + OCR (Tess4J).</li>
+                                <li>Reconnaissance faciale pour vérifier l'identité des utilisateurs.</li>
+                            </ul>
+                        </li>
+                        <li>Tableau de bord interactif pour la gestion des utilisateurs, véhicules et historiques d'accès.</li>
+                    </ul>
+                    <div class="stack">
+                        <span class="stag">Spring Boot</span><span class="stag">React</span>
+                        <span class="stag">Flutter</span><span class="stag">PostgreSQL</span>
+                        <span class="stag">YOLOv5</span><span class="stag">JWT</span><span class="stag">Tess4J</span>
+                    </div>
                 </div>
+
                 <div class="item">
                     <div class="item-header">
-                        <span class="company">Licence Professionnelle LPEM</span>
-                        <span class="date">2015 - 2016</span>
+                        <span class="company">Projet d'Interfaçage CAN Bus &amp; GPS</span>
+                        <span class="date">2025</span>
                     </div>
-                    <span class="description">Université Hassan II, Casablanca</span>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company">Licence Fondamentale</span>
-                        <span class="date">2013</span>
+                    <span class="org">Freelance</span>
+                    <ul class="desc-list">
+                        <li>Développement d'un système pour lire les données CAN Bus des véhicules (vitesse, kilométrage, consommation).</li>
+                        <li>Connexion à une API GPS pour récupérer la position en temps réel.</li>
+                        <li>Conception d'une interface web affichant les informations en direct :
+                            <ul class="desc-list sub">
+                                <li>Kilométrage cumulé &amp; consommation de carburant</li>
+                                <li>Localisation et suivi en temps réel</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="stack">
+                        <span class="stag">C#</span><span class="stag">MAUI</span>
+                        <span class="stag">REST API GPS</span><span class="stag">Raspberry Pi</span>
+                        <span class="stag">ESP32</span>
                     </div>
-                    <span class="description">Université Ibn Zohr, Agadir</span>
                 </div>
+
             </section>
+
         </main>
     </div>
-</div>
 
+    <footer>
+        © 2025 <span>Abdelouahed Zaama</span> — Berrechid, Maroc · zaama22@gmail.com
+    </footer>
+
+</div>
 </body>
 </html>
