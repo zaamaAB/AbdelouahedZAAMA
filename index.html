@@ -1,653 +1,679 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdelouahed ZAAMA | Portfolio</title>
-    <style>
-        :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --bg: #0f172a;
-            --card: #1e293b;
-            --card2: #253347;
-            --text: #f1f5f9;
-            --muted: #94a3b8;
-            --border: #334155;
-            --tag-bg: #2d3f55;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CV professionnel de Abdelouahed Zaama : enseignant de mathématiques, ingénieur d'État en informatique, Big Data, IA et développement full stack." />
+  <title>CV | Abdelouahed Zaama</title>
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #111827;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --line: #e5e7eb;
+      --shadow: 0 15px 35px rgba(17, 24, 39, 0.10);
+      --radius: 22px;
+    }
 
-        html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            font-size: 15px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* ─────────────── NAV MOBILE ─────────────── */
-        .mob-nav {
-            display: none;
-            position: sticky; top: 0; z-index: 200;
-            background: var(--card);
-            border-bottom: 2px solid var(--primary);
-            padding: .6rem 1rem;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .mob-nav-name {
-            font-weight: 800; font-size: .95rem;
-            letter-spacing: .05em; color: var(--primary);
-        }
-        .burger {
-            background: none; border: none; cursor: pointer;
-            display: flex; flex-direction: column; gap: 5px; padding: 4px;
-        }
-        .burger span {
-            display: block; width: 24px; height: 2px;
-            background: var(--text); border-radius: 2px;
-            transition: all .3s;
-        }
-        .burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-        .burger.open span:nth-child(2) { opacity: 0; }
-        .burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-        .mob-menu {
-            display: none; position: fixed; inset: 0; top: 49px; z-index: 199;
-            background: rgba(15,23,42,.97);
-            flex-direction: column; align-items: center; justify-content: center;
-            gap: 1.8rem;
-        }
-        .mob-menu.open { display: flex; }
-        .mob-menu a {
-            color: var(--text); text-decoration: none; font-size: 1.3rem;
-            font-weight: 700; letter-spacing: .08em; transition: color .2s;
-        }
-        .mob-menu a:hover { color: var(--primary); }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        /* ─────────────── CONTAINER ─────────────── */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1.5rem 1rem;
-        }
+    .page {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+      padding: 34px 0 60px;
+    }
 
-        /* ─────────────── HEADER ─────────────── */
-        header {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid var(--border);
-            border-bottom: 3px solid var(--primary);
-            border-radius: 14px;
-            padding: 2.5rem 2rem 2rem;
-            margin-bottom: 1.8rem;
-            text-align: center;
-        }
+    .hero {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 55%, #0f172a 100%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.4rem;
-        }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -90px;
+      top: -90px;
+      background: rgba(37, 99, 235, 0.25);
+      border-radius: 50%;
+    }
 
-        .avatar {
-            width: 90px; height: 90px; border-radius: 50%;
-            background: var(--card2);
-            border: 3px solid var(--primary);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.6rem; font-weight: 800; color: var(--primary);
-            flex-shrink: 0; overflow: hidden;
-        }
-        .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .photo-wrap {
+      position: relative;
+      z-index: 1;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      padding: 7px;
+      background: rgba(255, 255, 255, 0.95);
+    }
 
-        .header-text { text-align: left; }
-        @media (max-width: 520px) { .header-text { text-align: center; } }
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
 
-        h1 {
-            font-size: clamp(1.5rem, 5vw, 2.3rem);
-            letter-spacing: .04em; line-height: 1.1;
-        }
-        .title-main {
-            color: var(--primary); font-weight: 700;
-            font-size: clamp(.85rem, 2.5vw, 1rem);
-            margin-top: .35rem;
-        }
-        .title-sub {
-            color: var(--muted); font-size: clamp(.78rem, 2.2vw, .9rem);
-            margin-top: .15rem;
-        }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
 
-        .contacts {
-            display: flex; flex-wrap: wrap;
-            justify-content: center; gap: .55rem 1.4rem;
-            font-size: clamp(.75rem, 2.5vw, .88rem);
-        }
-        .contacts a, .contacts span {
-            color: var(--muted); text-decoration: none;
-            display: flex; align-items: center; gap: 6px;
-            transition: color .2s;
-        }
-        .contacts a:hover { color: var(--primary); }
-        .c-icon {
-            width: 20px; height: 20px; border-radius: 50%;
-            background: var(--tag-bg);
-            display: flex; align-items: center; justify-content: center;
-            font-size: .68rem; flex-shrink: 0;
-        }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: 4px;
+      line-height: 1.08;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
 
-        .btn-cv {
-            display: inline-block;
-            background: var(--primary);
-            color: #fff; padding: .65rem 1.6rem;
-            border-radius: 30px; text-decoration: none;
-            font-weight: 700; font-size: .88rem;
-            margin-top: 1.2rem;
-            transition: transform .2s, background .2s;
-        }
-        .btn-cv:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #e5e7eb;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
 
-        /* ─────────────── DESKTOP GRID ─────────────── */
-        .grid {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
+    .hero .subtitle span {
+      color: #93c5fd;
+    }
 
-        /* ─────────────── SECTION CARDS ─────────────── */
-        section {
-            background: var(--card);
-            padding: 1.4rem;
-            border-radius: 12px;
-            margin-bottom: 1.4rem;
-            border: 1px solid var(--border);
-        }
-        section:last-child { margin-bottom: 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(230px, 1fr));
+      gap: 10px 22px;
+      color: #f9fafb;
+      font-size: 0.96rem;
+    }
 
-        h2 {
-            border-left: 4px solid var(--primary);
-            padding-left: 12px;
-            font-size: clamp(.88rem, 2.5vw, 1rem);
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-bottom: 1.1rem;
-        }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        /* ─────────────── SKILLS ─────────────── */
-        .sg { margin-bottom: 13px; }
-        .sg:last-child { margin-bottom: 0; }
-        .sg h3 {
-            font-size: .82rem; color: var(--primary);
-            margin-bottom: 6px;
-        }
-        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-        .tag {
-            background: var(--tag-bg); border: 1px solid #475569;
-            border-radius: 6px; padding: 3px 10px;
-            font-size: .76rem; color: var(--text);
-        }
+    .icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
 
-        /* ─────────────── LANGUES ─────────────── */
-        .lang-row {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: .42rem 0; border-bottom: 1px solid var(--border);
-            font-size: .88rem;
-        }
-        .lang-row:last-child { border: none; }
-        .dots { display: flex; gap: 5px; }
-        .dot {
-            width: 9px; height: 9px; border-radius: 50%;
-            background: var(--border);
-        }
-        .dot.on { background: var(--primary); }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
 
-        /* ─────────────── ITEMS (exp / edu / proj) ─────────────── */
-        .item {
-            padding-bottom: 1.1rem; margin-bottom: 1.1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        .item:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: 0.25s ease;
+    }
 
-        .item-header {
-            display: flex; justify-content: space-between;
-            align-items: flex-start; gap: .8rem; margin-bottom: .2rem;
-            flex-wrap: wrap;
-        }
-        .company { font-weight: 700; font-size: .93rem; color: var(--text); }
-        .date {
-            color: var(--primary); font-weight: 700;
-            font-size: .78rem; white-space: nowrap; flex-shrink: 0;
-            background: rgba(59,130,246,.1);
-            border: 1px solid rgba(59,130,246,.25);
-            border-radius: 20px; padding: 2px 10px;
-        }
-        .org {
-            font-size: .79rem; color: var(--muted);
-            border-bottom: 1px dotted var(--border);
-            padding-bottom: .4rem; margin-bottom: .55rem;
-            display: block; line-height: 1.5;
-        }
-        .org.no-border { border: none; padding-bottom: 0; margin-bottom: 0; }
+    .btn.primary {
+      background: #ffffff;
+      color: #111827;
+    }
 
-        ul.dl {
-            padding-left: 1rem; margin-top: .4rem;
-            font-size: .83rem; color: var(--muted);
-        }
-        ul.dl li { margin-bottom: .25rem; }
-        ul.dl.sub { padding-left: 1.5rem; margin-top: .3rem; }
-        ul.dl.sub li::marker { color: var(--border); }
+    .btn.secondary {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
 
-        .multi-org {
-            display: flex; flex-direction: column; gap: .2rem;
-            margin-bottom: .6rem; font-size: .8rem; color: var(--muted);
-        }
-        .multi-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .2rem; }
-        .multi-date { color: var(--primary); font-weight: 700; font-size: .76rem; }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
 
-        /* stack tags */
-        .stack { display: flex; flex-wrap: wrap; gap: 5px; margin-top: .7rem; }
-        .stag {
-            background: rgba(59,130,246,.1);
-            border: 1px solid rgba(59,130,246,.28);
-            color: #93c5fd;
-            padding: 2px 9px; border-radius: 5px; font-size: .74rem;
-        }
+    .layout {
+      display: grid;
+      grid-template-columns: 0.88fr 1.55fr;
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
 
-        /* ─────────────── FOOTER ─────────────── */
-        footer {
-            text-align: center; padding: 1.5rem 1rem;
-            color: var(--muted); font-size: .78rem; margin-top: .5rem;
-        }
-        footer span { color: var(--primary); }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      border: 1px solid rgba(229, 231, 235, 0.75);
+    }
 
-        /* ─────────────── RESPONSIVE BREAKPOINTS ─────────────── */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 18px;
+      color: var(--primary);
+    }
 
-        /* Tablette : réduire sidebar */
-        @media (max-width: 900px) {
-            .grid { grid-template-columns: 240px 1fr; gap: 1.2rem; }
-        }
+    .section-title::before {
+      content: "";
+      width: 10px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: inline-block;
+    }
 
-        /* Mobile : 1 colonne, nav burger */
-        @media (max-width: 700px) {
-            body { font-size: 14px; }
+    .profile-text {
+      color: #374151;
+      font-size: 1rem;
+    }
 
-            .mob-nav { display: flex; }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
 
-            .container { padding: .8rem .85rem; }
+    .tag {
+      background: var(--accent-soft);
+      color: #1e40af;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
 
-            header {
-                padding: 1.6rem 1rem 1.4rem;
-                margin-bottom: 1.2rem;
-                border-radius: 10px;
-            }
+    .skill-group {
+      margin-bottom: 18px;
+    }
 
-            .header-inner { gap: 1.2rem; }
-            .avatar { width: 72px; height: 72px; font-size: 1.3rem; }
+    .skill-group h3 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
 
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
+    .skill-group p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-            /* Sur mobile : sidebar après le contenu principal */
-            .sidebar { order: 2; }
-            .main-col { order: 1; }
+    .timeline {
+      position: relative;
+      padding-left: 22px;
+    }
 
-            section { border-radius: 10px; padding: 1.1rem; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--line);
+    }
 
-            h2 { font-size: .82rem; }
+    .item {
+      position: relative;
+      padding-bottom: 24px;
+    }
 
-            .contacts { gap: .45rem .9rem; }
+    .item:last-child {
+      padding-bottom: 0;
+    }
 
-            /* accordion mobile */
-            .acc-header {
-                display: flex; justify-content: space-between; align-items: center;
-                cursor: pointer; user-select: none;
-            }
-            .acc-arrow {
-                font-size: .9rem; color: var(--primary);
-                transition: transform .3s; flex-shrink: 0;
-            }
-            .acc-arrow.open { transform: rotate(180deg); }
-            .acc-body { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
-            .acc-body.open { max-height: 2000px; }
-        }
+    .item::before {
+      content: "";
+      position: absolute;
+      left: -21px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
 
-        @media (max-width: 400px) {
-            h1 { font-size: 1.35rem; }
-            .avatar { width: 62px; height: 62px; }
-            .btn-cv { font-size: .8rem; padding: .55rem 1.2rem; }
-        }
-    </style>
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 4px;
+      align-items: flex-start;
+    }
+
+    .item h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      line-height: 1.35;
+    }
+
+    .date {
+      color: var(--accent);
+      font-weight: 800;
+      white-space: nowrap;
+      font-size: 0.92rem;
+    }
+
+    .place {
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+      color: #374151;
+    }
+
+    .project {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      margin-bottom: 16px;
+      background: #fcfcfd;
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project h3 {
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .tech {
+      color: var(--accent);
+      font-weight: 700;
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    .education-item {
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .education-item:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .education-item h3 {
+      font-size: 1rem;
+      color: var(--primary);
+    }
+
+    .education-item p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 24px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+        justify-items: center;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-item {
+        justify-content: center;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: 94%;
+        padding-top: 18px;
+      }
+
+      .hero {
+        padding: 24px 18px;
+      }
+
+      .photo-wrap {
+        width: 145px;
+        height: 145px;
+      }
+
+      .card {
+        padding: 19px;
+      }
+
+      .item-head {
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .date {
+        white-space: normal;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .card,
+      .project {
+        box-shadow: none;
+      }
+
+      .actions,
+      .footer {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <main class="page">
+    <header class="hero">
+      <div class="photo-wrap">
+        <!-- Remplace le fichier ci-dessous par ta photo : assets/photo.jpg -->
+        <img src="assets/photo.jpg" alt="Photo de Abdelouahed Zaama" />
+      </div>
 
-<!-- NAV BURGER MOBILE -->
-<nav class="mob-nav">
-    <span class="mob-nav-name">A. Zaama</span>
-    <button class="burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-    </button>
-</nav>
-<div class="mob-menu" id="mob-menu">
-    <a href="#experience" onclick="closeMenu()">Expérience</a>
-    <a href="#projets" onclick="closeMenu()">Projets</a>
-    <a href="#competences" onclick="closeMenu()">Compétences</a>
-    <a href="#formation" onclick="closeMenu()">Formation</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
-</div>
+      <div class="hero-content">
+        <h1>Abdelouahed Zaama</h1>
+        <p class="subtitle">Enseignant de Mathématiques <span>|</span> Ingénieur d'État en Informatique</p>
 
-<div class="container">
-
-    <!-- HEADER -->
-    <header id="contact">
-        <div class="header-inner">
-            <div class="avatar"><img src="photo.jpg" alt="Abdelouahed Zaama"/>
-                <!-- Remplacez AZ par : <img src="photo.jpg" alt="Photo"/> -->
-            </div>
-            <div class="header-text">
-                <h1>ABDELOUAHED ZAAMA</h1>
-                <div class="title-main">Enseignant de Mathématiques</div>
-                <div class="title-sub">Ingénieur d'État en Informatique · Doctorant ENSA</div>
-            </div>
+        <div class="contact-grid">
+          <a class="contact-item" href="tel:+212618390378"><span class="icon">☎</span> 06 18 39 03 78</a>
+          <a class="contact-item" href="mailto:zaama22@gmail.com"><span class="icon">✉</span> zaama22@gmail.com</a>
+          <span class="contact-item"><span class="icon">📍</span> Berrechid, Maroc</span>
+          <a class="contact-item" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span class="icon">in</span> Profil LinkedIn</a>
         </div>
-        <div class="contacts">
-            <a href="tel:+212618390378"><span class="c-icon">📞</span>06 18 39 03 78</a>
-            <a href="mailto:zaama22@gmail.com"><span class="c-icon">✉</span>zaama22@gmail.com</a>
-            <span><span class="c-icon">📍</span>Berrechid, Maroc</span>
-            <a href="https://linkedin.com/in/" target="_blank"><span class="c-icon">in</span>LinkedIn</a>
-            <a href="https://github.com/" target="_blank"><span class="c-icon">⌥</span>GitHub</a>
+
+        <div class="actions">
+          <a class="btn primary" href="assets/CV_Abdelouahed_Zaama.pdf" target="_blank" rel="noopener">📄 Télécharger le CV</a>
+          <a class="btn secondary" href="#contact">Me contacter</a>
         </div>
-        <a href="cv.pdf" class="btn-cv" target="_blank">⬇ Télécharger mon CV</a>
+      </div>
     </header>
 
-    <!-- GRID -->
-    <div class="grid">
+    <section class="layout">
+      <aside>
+        <article class="card">
+          <h2 class="section-title">Profil</h2>
+          <p class="profile-text">
+            Enseignant de mathématiques et ingénieur d'État en informatique, avec une expérience dans l'enseignement secondaire, la formation en Big Data et le développement d'applications web, mobiles et intelligentes. Profil hybride combinant mathématiques, informatique, data science, intelligence artificielle et systèmes industriels.
+          </p>
+        </article>
 
-        <!-- ── SIDEBAR ── -->
-        <aside class="sidebar">
+        <article class="card">
+          <h2 class="section-title">Compétences</h2>
 
-            <section id="competences">
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    <h2 style="margin:0">Compétences</h2>
-                    <span class="acc-arrow open">▼</span>
-                </div>
-                <div class="acc-body open" style="padding-top:.9rem">
-                    <div class="sg"><h3>Langages</h3>
-                        <div class="tags">
-                            <span class="tag">Java / J2EE</span><span class="tag">Python</span>
-                            <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
-                            <span class="tag">C++</span><span class="tag">C#</span>
-                        </div>
-                    </div>
-                    <div class="sg"><h3>Frontend</h3>
-                        <div class="tags">
-                            <span class="tag">React</span><span class="tag">Flutter</span>
-                            <span class="tag">Angular</span><span class="tag">Ionic</span>
-                        </div>
-                    </div>
-                    <div class="sg"><h3>Backend &amp; Frameworks</h3>
-                        <div class="tags">
-                            <span class="tag">Spring Boot</span><span class="tag">.NET Core</span>
-                            <span class="tag">Flask</span><span class="tag">REST API</span><span class="tag">JWT</span>
-                        </div>
-                    </div>
-                    <div class="sg"><h3>Bases de données</h3>
-                        <div class="tags">
-                            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
-                            <span class="tag">Oracle</span><span class="tag">SQL Server</span>
-                        </div>
-                    </div>
-                    <div class="sg"><h3>Data Science &amp; IA</h3>
-                        <div class="tags">
-                            <span class="tag">Pandas</span><span class="tag">NumPy</span>
-                            <span class="tag">Matplotlib</span><span class="tag">OpenCV</span>
-                            <span class="tag">YOLO</span><span class="tag">DeepFace</span>
-                        </div>
-                    </div>
-                    <div class="sg"><h3>Big Data &amp; BI</h3>
-                        <div class="tags">
-                            <span class="tag">Hadoop</span><span class="tag">Spark</span>
-                            <span class="tag">Kafka</span><span class="tag">Power BI</span>
-                            <span class="tag">Tableau</span><span class="tag">MicroStrategy</span>
-                        </div>
-                    </div>
-                    <div class="sg"><h3>Cloud &amp; DevOps</h3>
-                        <div class="tags">
-                            <span class="tag">AWS</span><span class="tag">Azure</span>
-                            <span class="tag">Databricks</span><span class="tag">Docker</span>
-                            <span class="tag">Git / GitHub</span><span class="tag">CI/CD</span>
-                        </div>
-                    </div>
-                    <div class="sg"><h3>Outils &amp; Méthodes</h3>
-                        <div class="tags">
-                            <span class="tag">JIRA</span><span class="tag">Postman</span>
-                            <span class="tag">Swagger</span><span class="tag">UML</span>
-                            <span class="tag">Scrum</span><span class="tag">SonarQube</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          <div class="skill-group">
+            <h3>Langages de programmation</h3>
+            <p>Java, Python, JavaScript, TypeScript, C#, C/C++</p>
+          </div>
 
-            <section>
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    <h2 style="margin:0">Langues</h2>
-                    <span class="acc-arrow open">▼</span>
-                </div>
-                <div class="acc-body open" style="padding-top:.7rem">
-                    <div class="lang-row"><span>Arabe</span>
-                        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
-                    </div>
-                    <div class="lang-row"><span>Français</span>
-                        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
-                    </div>
-                    <div class="lang-row"><span>Anglais</span>
-                        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div>
-                    </div>
-                </div>
-            </section>
+          <div class="skill-group">
+            <h3>Développement Web & Mobile</h3>
+            <p>Spring Boot, .NET Core, React, Angular, Flutter, Ionic</p>
+          </div>
 
-            <section>
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    <h2 style="margin:0">Intérêts</h2>
-                    <span class="acc-arrow open">▼</span>
-                </div>
-                <div class="acc-body open" style="padding-top:.7rem">
-                    <p style="font-size:.85rem;color:var(--muted)">Tech open-source · Hackathons · Randonnée en montagne</p>
-                </div>
-            </section>
+          <div class="skill-group">
+            <h3>Bases de données</h3>
+            <p>PostgreSQL, MySQL, Oracle, SQL Server</p>
+          </div>
 
-            <section id="formation">
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    <h2 style="margin:0">Formation</h2>
-                    <span class="acc-arrow open">▼</span>
-                </div>
-                <div class="acc-body open" style="padding-top:.9rem">
-                    <div class="item">
-                        <div class="item-header">
-                            <span class="company" style="font-size:.85rem">Doctorat en Informatique</span>
-                            <span class="date">2025 →</span>
-                        </div>
-                        <span class="org no-border">ENSA Berrechid</span>
-                    </div>
-                    <div class="item">
-                        <div class="item-header">
-                            <span class="company" style="font-size:.85rem">Ingénieur d'État — Informatique</span>
-                            <span class="date">2023–2025</span>
-                        </div>
-                        <span class="org no-border">ESTEM, Casablanca<br/>Sciences de Données &amp; Dév.</span>
-                    </div>
-                    <div class="item">
-                        <div class="item-header">
-                            <span class="company" style="font-size:.85rem">Licence Pro. LPEM</span>
-                            <span class="date">2015–2016</span>
-                        </div>
-                        <span class="org no-border">ENS Casablanca — Maths</span>
-                    </div>
-                    <div class="item">
-                        <div class="item-header">
-                            <span class="company" style="font-size:.85rem">Licence Fondamentale</span>
-                            <span class="date">2015</span>
-                        </div>
-                        <span class="org no-border">FSA Agadir — Maths</span>
-                    </div>
-                    <div class="item">
-                        <div class="item-header">
-                            <span class="company" style="font-size:.85rem">Bac Série Maths A</span>
-                            <span class="date">2010</span>
-                        </div>
-                        <span class="org no-border">Lycée Sidi Ahmed Bennacer, Zagora</span>
-                    </div>
-                </div>
-            </section>
+          <div class="skill-group">
+            <h3>Data Science & IA</h3>
+            <p>Pandas, NumPy, Matplotlib, OpenCV, YOLOv5, DeepFace</p>
+          </div>
 
-        </aside>
+          <div class="skill-group">
+            <h3>Big Data & BI</h3>
+            <p>Hadoop, Spark, Kafka, Power BI, Tableau, MicroStrategy</p>
+          </div>
 
-        <!-- ── CONTENU PRINCIPAL ── -->
-        <main class="main-col">
+          <div class="skill-group">
+            <h3>Cloud, DevOps & Outils</h3>
+            <p>Docker, Git, GitHub, CI/CD, AWS, Azure, Postman, Swagger, UML, Scrum, Jira</p>
+          </div>
+        </article>
 
-            <section id="experience">
-                <h2>Expérience Professionnelle</h2>
+        <article class="card">
+          <h2 class="section-title">Éducation</h2>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company">Enseignant vacataire — Informatique / Big Data</span>
-                        <span class="date">2025/2026</span>
-                    </div>
-                    <span class="org">ENSA-Berrechid · Ministère de l'Enseignement Supérieur</span>
-                    <ul class="dl">
-                        <li>Transmission des compétences en traitement massif des données.</li>
-                        <li>Introduction aux écosystèmes Big Data (Hadoop, Spark, Kafka).</li>
-                        <li>Développement d'exemples concrets basés sur les besoins industriels.</li>
-                    </ul>
-                </div>
+          <div class="education-item">
+            <h3>Doctorat en Informatique</h3>
+            <p>ENSA Berrechid — depuis 2025</p>
+            <p>IA, robotique et prise de décision autonome.</p>
+          </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company">Enseignant titulaire — Mathématiques</span>
-                        <span class="date">2017 – Présent</span>
-                    </div>
-                    <span class="org">Lycée Ibn Rochd, Berrechid · Min. de l'Éducation Nationale</span>
-                    <ul class="dl">
-                        <li>Enseignement des mathématiques — collège et lycée.</li>
-                        <li>Conception de projets pédagogiques innovants.</li>
-                        <li>Organisation et animation de cours théoriques et pratiques.</li>
-                        <li>Organisation des compétitions olympiades de mathématiques.</li>
-                    </ul>
-                </div>
+          <div class="education-item">
+            <h3>Diplôme d'Ingénieur d'État en Informatique</h3>
+            <p>ESTEM Casablanca — 2023 / 2025</p>
+            <p>Sciences des Données & Développement Informatique.</p>
+          </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company">Enseignant vacataire — Mathématiques</span>
-                    </div>
-                    <div class="multi-org">
-                        <div class="multi-row"><span>Groupe Scolaire ASSAFA ALMARWA, Berrechid</span><span class="multi-date">2022/2023</span></div>
-                        <div class="multi-row"><span>Groupe Scolaire MIRANDA, Berrechid</span><span class="multi-date">2023/2024</span></div>
-                        <div class="multi-row"><span>Groupe Scolaire JABRANE, Berrechid</span><span class="multi-date">2021/2022</span></div>
-                    </div>
-                    <ul class="dl">
-                        <li>Enseignement en classe de TCS, 1ᵉʳ et 2ᵉᵐᵉ Bac.</li>
-                        <li>Création de supports de cours adaptés au niveau des élèves.</li>
-                        <li>Accompagnement personnalisé des élèves en difficulté.</li>
-                    </ul>
-                </div>
+          <div class="education-item">
+            <h3>Licence Professionnelle LPEM</h3>
+            <p>ENS Casablanca — 2015 / 2016</p>
+            <p>Enseignement des mathématiques.</p>
+          </div>
 
-            </section>
+          <div class="education-item">
+            <h3>Licence Fondamentale</h3>
+            <p>FSA Agadir — 2015</p>
+            <p>Sciences mathématiques.</p>
+          </div>
 
-            <section id="projets">
-                <h2>Projets</h2>
+          <div class="education-item">
+            <h3>Baccalauréat Sciences Mathématiques A</h3>
+            <p>Lycée Sidi Ahmed Bennacer, Zagora — 2010</p>
+          </div>
+        </article>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company">Système Intelligent de Contrôle et Gestion des Accès Industriels</span>
-                        <span class="date">2025</span>
-                    </div>
-                    <span class="org">Projet de Fin d'Études</span>
-                    <ul class="dl">
-                        <li>Application complète (backend + frontend) pour gérer l'accès du personnel et des véhicules dans un site industriel.</li>
-                        <li>Authentification sécurisée (JWT).</li>
-                        <li>Intégration de modules IA :
-                            <ul class="dl sub">
-                                <li>Détection de plaques via YOLOv5 + OCR (Tess4J).</li>
-                                <li>Reconnaissance faciale pour vérifier l'identité des utilisateurs.</li>
-                            </ul>
-                        </li>
-                        <li>Tableau de bord interactif : utilisateurs, véhicules, historiques.</li>
-                    </ul>
-                    <div class="stack">
-                        <span class="stag">Spring Boot</span><span class="stag">React</span><span class="stag">Flutter</span>
-                        <span class="stag">PostgreSQL</span><span class="stag">YOLOv5</span><span class="stag">JWT</span><span class="stag">Tess4J</span>
-                    </div>
-                </div>
+        <article class="card">
+          <h2 class="section-title">Langues</h2>
+          <div class="tag-list">
+            <span class="tag">Arabe</span>
+            <span class="tag">Français</span>
+            <span class="tag">Anglais</span>
+          </div>
+        </article>
+      </aside>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="company">Projet d'Interfaçage CAN Bus &amp; GPS</span>
-                        <span class="date">2025</span>
-                    </div>
-                    <span class="org">Freelance</span>
-                    <ul class="dl">
-                        <li>Lecture des données CAN Bus des véhicules (vitesse, kilométrage, consommation) via Raspberry Pi / ESP32.</li>
-                        <li>Connexion à une API GPS pour la position en temps réel.</li>
-                        <li>Interface web affichant kilométrage, consommation et localisation en direct.</li>
-                    </ul>
-                    <div class="stack">
-                        <span class="stag">C#</span><span class="stag">MAUI</span>
-                        <span class="stag">REST API GPS</span><span class="stag">Raspberry Pi</span><span class="stag">ESP32</span>
-                    </div>
-                </div>
+      <section>
+        <article class="card">
+          <h2 class="section-title">Expérience professionnelle</h2>
 
-            </section>
+          <div class="timeline">
+            <div class="item">
+              <div class="item-head">
+                <h3>Enseignant vacataire en Informatique / Big Data</h3>
+                <span class="date">2025 / 2026</span>
+              </div>
+              <p class="place">École Nationale des Sciences Appliquées, ENSA Berrechid</p>
+              <ul>
+                <li>Animation de séances de cours et travaux pratiques en Big Data.</li>
+                <li>Introduction aux écosystèmes Hadoop, Spark et Kafka.</li>
+                <li>Conception d'exemples pratiques liés au traitement massif des données.</li>
+                <li>Accompagnement des étudiants dans la compréhension des architectures distribuées.</li>
+              </ul>
+            </div>
 
-        </main>
-    </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Enseignant titulaire en Mathématiques</h3>
+                <span class="date">Sept. 2017 — Aujourd'hui</span>
+              </div>
+              <p class="place">Lycée Ibn Rochd, Direction provinciale de Berrechid</p>
+              <ul>
+                <li>Enseignement des mathématiques aux niveaux collège et lycée.</li>
+                <li>Préparation de supports pédagogiques adaptés aux besoins des élèves.</li>
+                <li>Encadrement des élèves en difficulté et suivi individualisé.</li>
+                <li>Organisation d'activités scientifiques, compétitions et olympiades de mathématiques.</li>
+                <li>Encadrement et suivi de projets d'élèves et d'étudiants, notamment des projets de recherche, d'innovation pédagogique et d'applications numériques.</li>
+              </ul>
+            </div>
 
-    <footer>
-        © 2025 <span>Abdelouahed Zaama</span> · Berrechid, Maroc · zaama22@gmail.com
+            <div class="item">
+              <div class="item-head">
+                <h3>Enseignant vacataire en Mathématiques</h3>
+                <span class="date">2021 — 2024</span>
+              </div>
+              <p class="place">Groupes scolaires : ASFA ALMARWA, MIRANDA et JABRANE — Berrechid</p>
+              <ul>
+                <li>Enseignement des mathématiques en classe de TCS, 1ère et 2ème Bac.</li>
+                <li>Création de supports de cours adaptés au niveau des élèves.</li>
+                <li>Suivi des élèves en difficulté et accompagnement personnalisé.</li>
+                <li>Participation à l'organisation d'événements scientifiques au sein des établissements.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">Projets</h2>
+
+          <div class="project">
+            <h3>Système intelligent de contrôle et de gestion des accès industriels</h3>
+            <p><strong>Projet de fin d'études — 2025</strong></p>
+            <p class="tech">Spring Boot · Java · React · Flutter · PostgreSQL · REST API · JWT · YOLOv5</p>
+            <ul>
+              <li>Développement d'une application complète pour gérer l'accès du personnel, des visiteurs et des véhicules dans un site industriel.</li>
+              <li>Mise en place d'une authentification sécurisée basée sur JWT.</li>
+              <li>Création d'un tableau de bord interactif pour la gestion des utilisateurs, réservations, véhicules et historiques d'accès.</li>
+              <li>Intégration de modules IA pour la détection de plaques d'immatriculation et la reconnaissance faciale.</li>
+              <li>Génération et validation de QR codes pour automatiser les autorisations d'accès.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <h3>Projet d'interfaçage CAN Bus & GPS</h3>
+            <p><strong>Projet freelance — 2025</strong></p>
+            <p class="tech">C# · .NET MAUI · API REST · GPS · Raspberry Pi · ESP32</p>
+            <ul>
+              <li>Développement d'un système d'interfaçage pour lire les données CAN Bus des véhicules.</li>
+              <li>Connexion à une API GPS pour récupérer la position en temps réel.</li>
+              <li>Conception d'une interface de suivi affichant la vitesse, le kilométrage, la consommation et la localisation.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">Encadrement & Innovation</h2>
+          <ul>
+            <li>Suivi et accompagnement de projets d'élèves et d'étudiants.</li>
+            <li>Encadrement de projets de recherche, d'innovation pédagogique et technologique.</li>
+            <li>Aide à la conception, à la structuration et à la valorisation des projets.</li>
+            <li>Participation à des clubs, compétitions, événements scientifiques et activités éducatives.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">Recherche & intérêts scientifiques</h2>
+          <ul>
+            <li>Intelligence artificielle appliquée à la robotique et aux systèmes autonomes.</li>
+            <li>Prise de décision automatique et apprentissage par renforcement.</li>
+            <li>Modélisation mathématique et contrôle intelligent des drones quadrotors.</li>
+            <li>Vision par ordinateur appliquée aux systèmes industriels.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="contact">
+          <h2 class="section-title">Contact</h2>
+          <p>Pour une collaboration, une opportunité d'enseignement, un projet informatique ou une activité scientifique, vous pouvez me contacter par email.</p>
+          <br />
+          <p><strong>Email :</strong> <a href="mailto:zaama22@gmail.com">zaama22@gmail.com</a></p>
+          <p><strong>Téléphone :</strong> <a href="tel:+212618390378">06 18 39 03 78</a></p>
+          <p><strong>Localisation :</strong> Berrechid, Maroc</p>
+        </article>
+      </section>
+    </section>
+
+    <footer class="footer">
+      © 2026 Abdelouahed Zaama — CV en ligne hébergé sur GitHub Pages.
     </footer>
-
-</div>
-
-<script>
-    // Burger menu
-    const burger = document.getElementById('burger');
-    const menu   = document.getElementById('mob-menu');
-    burger.addEventListener('click', () => {
-        burger.classList.toggle('open');
-        menu.classList.toggle('open');
-        document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-    });
-    function closeMenu() {
-        burger.classList.remove('open');
-        menu.classList.remove('open');
-        document.body.style.overflow = '';
-    }
-
-    // Accordion : ouvre/ferme les sections sur mobile
-    function toggleAcc(header) {
-        const arrow = header.querySelector('.acc-arrow');
-        const body  = header.nextElementSibling;
-        const isOpen = body.classList.contains('open');
-        body.classList.toggle('open', !isOpen);
-        arrow.classList.toggle('open', !isOpen);
-        if (!isOpen) {
-            body.style.maxHeight = body.scrollHeight + 'px';
-        } else {
-            body.style.maxHeight = '0';
-        }
-    }
-
-    // Init accordion : all open by default, set max-height
-    document.querySelectorAll('.acc-body.open').forEach(b => {
-        b.style.maxHeight = b.scrollHeight + 2000 + 'px';
-    });
-</script>
-
+  </main>
 </body>
 </html>
